@@ -8,6 +8,6 @@ gulp.task('clean', function (cb) {
   del([
     config.publicAssets,
     htmlConfig.dest,
-    iconFontConfig.sassDest
+    iconFontConfig.extendedCssDest
   ], cb);
 });
