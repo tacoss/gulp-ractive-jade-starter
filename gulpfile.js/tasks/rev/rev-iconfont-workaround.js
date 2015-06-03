@@ -3,7 +3,7 @@ var _            = require('lodash');
 var config       = require('../../config');
 var iconConfig   = require('../../config/iconFont');
 var fs           = require('fs');
-var gulp         = require('gulp');
+var gulp         = require('gulp-help')(require('gulp'));
 var merge        = require('merge-stream');
 var rename       = require("gulp-rename");
 var rev          = require('gulp-rev');
@@ -19,7 +19,7 @@ var rev          = require('gulp-rev');
 // generated hash to the ttf, eot, and woff files (instead of
 // leting each file generate its own hash)
 
-gulp.task('rev-iconfont-workaround', ['rev-assets'], function() {
+gulp.task('rev-iconfont-workaround', false, ['rev-assets'], function() {
   var manifest = require('../../.' + config.publicDirectory + '/rev-manifest.json');
   var fontList = [];
 

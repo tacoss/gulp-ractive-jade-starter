@@ -1,9 +1,9 @@
 var browserSync = require('browser-sync');
 var changed     = require('gulp-changed');
 var config      = require('../config/fonts');
-var gulp        = require('gulp');
+var gulp        = require('gulp-help')(require('gulp'));
 
-gulp.task('fonts', function() {
+gulp.task('fonts', 'Copy all fonts and reload browserSync.', function() {
   return gulp.src(config.src)
     .pipe(changed(config.dest)) // Ignore unchanged files
     .pipe(gulp.dest(config.dest))

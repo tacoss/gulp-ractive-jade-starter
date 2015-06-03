@@ -1,5 +1,5 @@
 // If you are familiar with Rails, this task the equivalent of `rake assets:precompile`
-var gulp = require('gulp');
+var gulp = require('gulp-help')(require('gulp'));
 
 // 1) Add md5 hashes to assets referenced by CSS and JS files
 // 2) Manually hash EOT, TTF, and WOFF files
@@ -9,7 +9,7 @@ var gulp = require('gulp');
 // 5) Update asset references in HTML
 // 6) Report filesizes
 
-gulp.task('rev', [
+gulp.task('rev', 'Minify files and create hashes for production', [
   'rev-assets',
   'rev-iconfont-workaround',
   'rev-update-references',

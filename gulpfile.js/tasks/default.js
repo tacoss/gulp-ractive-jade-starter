@@ -1,3 +1,3 @@
-var gulp = require('gulp');
+var gulp = require('gulp-help')(require('gulp'));
 
-gulp.task('default', ['build:development']);
+gulp.task('default', 'Start default task, alias of build:development.', ['build:development']);

@@ -1,5 +1,5 @@
 
-var gulp = require('gulp');
+var gulp = require('gulp-help')(require('gulp'));
 
-gulp.task('styles', ['less']);
+gulp.task('styles', 'Compile and pre-process all stylesheets (currently only LESS)', ['less']);
 //gulp.task('styles', ['sass']);

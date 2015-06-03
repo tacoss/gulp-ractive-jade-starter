@@ -1,13 +1,12 @@
 var config = require('../../config');
 var filter = require('gulp-filter');
-var gulp   = require('gulp');
+var gulp   = require('gulp-help')(require('gulp'));
 var minify = require('gulp-minify-css');
 var rev    = require('gulp-rev');
-var uglify = require('gulp-uglify');
 
-// 4) Rev and compress CSS and JS files (this is done after assets, so that if a
+// 4) Rev and compress CSS files (this is done after assets, so that if a
 //    referenced asset hash changes, the parent hash will change as well
-gulp.task('rev-css', ['rev-update-references'], function(){
+gulp.task('rev-css', false, ['rev-update-references'], function(){
 
   return gulp.src(config.publicDirectory + '/**/*.css')
     .pipe(rev())

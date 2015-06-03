@@ -14,7 +14,7 @@ module.exports = function(env) {
     plugins: [],
 
     resolve: {
-      extensions: ['', '.js']
+      extensions: ['', '.coffee', '.litcoffee', '.js']
     },
 
     module: {
@@ -24,8 +24,11 @@ module.exports = function(env) {
           loader: 'babel-loader?stage=1',
           exclude: /node_modules/
         },
-        { test: /\.coffee$/, loader: "coffee-loader" },
-        { test: /\.(coffee\.md|litcoffee)$/, loader: "coffee-loader?literate" }
+        { 
+          test: /\.(lit)?coffee$/, 
+          loader: "coffee-loader", 
+          exclude: /node_modules/ 
+        }
       ]
     }
   }
@@ -33,8 +36,9 @@ module.exports = function(env) {
   if(env !== 'test') {
     // Karma doesn't need entry points or output settings
     webpackConfig.entry= {
-      page1: [ './page1.js' ],
-      page2: [ './page2.js' ]
+      page1: [ './page1' ],
+      page2: [ './page2' ],
+      cup:   [ './aCupOf' ]
     }
 
     webpackConfig.output= {
@@ -53,7 +57,7 @@ module.exports = function(env) {
   }
 
   if(env === 'development') {
-    webpackConfig.devtool = 'source-map'
+    webpackConfig.devtool = 'source-map-inline'
     webpack.debug = true
   }
 

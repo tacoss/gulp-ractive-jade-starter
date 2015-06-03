@@ -1,10 +1,10 @@
-var config = require('../../config');
+var config         = require('../../config');
 var iconFontConfig = require('../../config/iconFont');
-var gulp   = require('gulp');
-var rev    = require('gulp-rev');
+var gulp           = require('gulp-help')(require('gulp'));
+var rev            = require('gulp-rev');
 
 // 1) Add md5 hashes to assets referenced by CSS and JS files
-gulp.task('rev-assets', function() {
+gulp.task('rev-assets', false, function() {
   // Ignore what we dont want to hash in this step
   var notThese = '!' + config.publicDirectory + '/**/*+(css|js|json|html)'
   // Ignore iconFont files generated from the base svg iconFont. See rev-iconfont-workaround.js

@@ -1,4 +1,4 @@
-var gulp = require('gulp');
+var gulp = require('gulp-help')(require('gulp'));
 var karma = require('karma');
 
 var karmaTask = function(done) {
@@ -13,6 +13,6 @@ var karmaTask = function(done) {
   });
 };
 
-gulp.task('karma', karmaTask);
+gulp.task('karma', 'Run karma tests.', karmaTask);
 
 module.exports = karmaTask;
