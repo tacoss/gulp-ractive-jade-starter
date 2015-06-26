@@ -1,49 +1,50 @@
-gulp-starter
+gulp-ractive-jade-starter
 ============
-## Revisions
-- Full asset pipeline and static html compilation
-- New directory structure
-- Replaced Browserify with [Webpack](http://webpack.github.io/docs/webpack-for-browserify-users.html)!
-  - Async CommonJS module requires
-  - Automatically splits out shared dependencies
-  - New `html` task w/ Swig templating/compiling
-- Replace CoffeeScript with ES6 ([Babel.js](http://babeljs.io/))
-- New `server` task to test production files locally
-- New `deploy` task to deploy the public directory to gh-pages
-- New `rev` task that revisions filenames and compress css and js
-- Use `gulp-watch` instead of `gulp.watch` (correctly handles new files)
-- New `build:production` task runs tests, compression + filename revisioning
-- Remove old examples and extraneous dependencies
-- Upgrade dependencies (BrowserSync 2!)
-- Added example Travis CI integration that runs karma tests and production build
+[![Build Status](https://travis-ci.org/gextech/gulp-ractive-jade-starter.svg)](https://travis-ci.org/gextech/gulp-ractive-jade-starter)
 
-## Live Demo
-http://greypants.github.io/gulp-starter/
-Result of running `gulp deploy`
+Starter project for Jade-flavored Ractive templates + CoffeeScript + LESS + Webpack and Gulp
 
-## Install dependencies
+# Features
+- Jade support for standalone and Ractive templates
+- CoffeeScript compilation with sourcemaps
+- LESS stylesheets support
+- Scripts and Ractive templates are optimized and bundled with Webpack 
+- Lossless image optimization
+- Icon font creation from `svg` files
+- `build:production` task runs tests, compression & filename revisioning
+- Example Travis CI integration that runs karma tests and production build
+
+# Installation
+Just clone the repo, `cd` to it and install project's dependencies
 ```
 npm install
 ```
 
-## Start gulp
+# Usage
+Most of the time you'll be using the default task (alias of `build:development`):
 ```
 gulp
 ```
-You may need to alias `gulp` to `node_modules/.bin/gulp`, or `npm install -g gulp`.
+> You may need to install gulp globally (`npm install -g gulp`).
 
-Start editing assets and views from the `gulp/assets` and `gulp/views` folder. Files compile to `public`.
+This task includes a watcher and a live reloader so that changes in `src` are detected and compiled into `build`.
 
-## Preview production environment
+## Gulp tasks
+For a complete list of the available tasks
+```
+gulp help
+```
+
+### Production build
+Not yet working.  Sorry.  When it does, 
 ```
 gulp build:production
 gulp server
 ```
 
-## Deploy to GitHub pages
-```
-gulp deploy
-```
-This will run karma, build your files, revision and compress them, and copy the contents of the public folder to a `gh-pages` branch, and push it up to GitHub.
+## Folder structure
 
-[![Build Status](https://travis-ci.org/greypants/gulp-starter.svg?branch=static-server)](https://travis-ci.org/greypants/gulp-starter)
+TBA
+
+# Credits
+Most of the code was taken from greypant's excellent [gulp-starter](https://github.com/greypants/gulp-starter) project.
