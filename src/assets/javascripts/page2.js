@@ -1,3 +1,3 @@
-let exclaimify = require('./exclaimify')
+var exclaimify = require('./exclaimify');
 
-console.log(exclaimify('page2.js loaded'))
+console.log(exclaimify('page2.js loaded'));

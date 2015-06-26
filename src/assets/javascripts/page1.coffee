@@ -1,5 +1,7 @@
 'use strict'
-exclaimify = require('./exclaimify')
+exclaimify = require './exclaimify'
+Ractive = require('ractive/ractive.runtime')
+
 console.log exclaimify('page1.js loaded')
 button = document.getElementById('button')
 
@@ -17,3 +19,15 @@ document.getElementById('coffee').addEventListener 'click', ->
   console.warn 'Loading cup of coffee'
   console.log exclaimify(require('./aCupOf')('You know how to'))
   return
+
+fooRact = require('foo.ract.jade')
+console.log 'fooRact', fooRact
+
+
+ractive = new Ractive {
+	el: "#ractMain",
+	template: fooRact,
+	data: {
+		hello: "two-way binding!"
+	}
+}
