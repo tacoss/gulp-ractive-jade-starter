@@ -2,6 +2,7 @@ var path            = require('path')
 var paths           = require('../')
 var webpack         = require('webpack')
 var webpackManifest = require('../../lib/webpackManifest')
+var logOptions      = require('./logging')
 
 module.exports = function(env) {
 	
@@ -29,6 +30,8 @@ module.exports = function(env) {
 				path.resolve(ractiveDir, 'templates/')
 			]
 		},
+		
+		stats: logOptions.outputConfig,
 
 		module: {
 			loaders: [
