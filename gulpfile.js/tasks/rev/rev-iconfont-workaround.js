@@ -7,6 +7,7 @@ var gulp         = require('gulp-help')(require('gulp'));
 var merge        = require('merge-stream');
 var rename       = require("gulp-rename");
 var rev          = require('gulp-rev');
+var path         = require('path');
 
 // .ttf fonts have an embedded timestamp, which cause the contents
 // of the file to change ever-so-slightly. This was a problem for
@@ -50,7 +51,7 @@ gulp.task('rev-iconfont-workaround', false, ['rev-assets'], function() {
   });
 
   // Re-write rev-manifest.json to disk
-  fs.writeFile(config.publicDirectory + '/rev-manifest.json', JSON.stringify(manifest, null, 2));
+  fs.writeFile(path.join(config.publicDirectory, '/rev-manifest.json'), JSON.stringify(manifest, null, 2));
 
   return merge.apply(this, streams);
 });

@@ -10,6 +10,7 @@
 		"type": "git",
 		"url": "git://github.com/gextech/gulp-ractive-jade-starter.git"
 	},
+	"license": "MIT",
 	"scripts": {
 		"test": "gulp build:production"
 	},

@@ -1,6 +1,6 @@
 var config = {}
 
-config.publicDirectory = "./build";
+config.publicDirectory = "./public";
 config.sourceDirectory = "./src";
 
 config.assetsDirName   = 'assets';

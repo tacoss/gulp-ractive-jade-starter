@@ -2,6 +2,7 @@ var config         = require('../../config');
 var iconFontConfig = require('../../config/iconFont');
 var gulp           = require('gulp-help')(require('gulp'));
 var rev            = require('gulp-rev');
+var path           = require('path');
 
 // 1) Add md5 hashes to assets referenced by CSS and JS files
 gulp.task('rev-assets', false, function() {
@@ -13,6 +14,6 @@ gulp.task('rev-assets', false, function() {
   return gulp.src([config.publicDirectory + '/**/*', notThese, orThese])
     .pipe(rev())
     .pipe(gulp.dest(config.publicDirectory))
-    .pipe(rev.manifest('public/rev-manifest.json', {merge: true}))
+    .pipe(rev.manifest(path.join(config.publicDirectory, '/rev-manifest.json'), {merge: true}))
     .pipe(gulp.dest(''));
 });
