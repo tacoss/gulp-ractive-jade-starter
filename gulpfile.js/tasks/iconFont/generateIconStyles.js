@@ -6,7 +6,7 @@ var handleErrors = require('../../lib/handleErrors');
 var merge        = require('merge-stream');
 var util         = require('gulp-util');
 
-module.exports = function(codepoints, options) {
+module.exports = function(glyphs, options) {
 
 	var processTemplateStream = function(data, name) {
 
@@ -19,10 +19,10 @@ module.exports = function(codepoints, options) {
 		return gulp.src(template)
 			.pipe(swig({
 				data: {
-					icons: codepoints.map(function(icon) {
+					icons: glyphs.map(function(icon) {
 						return {
 							name: icon.name,
-							code: icon.codepoint.toString(16)
+							code: icon.unicode[0].charCodeAt(0).toString(16).toUpperCase()
 						}
 					}),
 

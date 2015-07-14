@@ -1,4 +1,3 @@
-var assign       = require('object-assign');
 var config       = require('../config/webpack/buildConfig')('development');
 var gulp         = require('gulp-help')(require('gulp'));
 var logConfig    = require('../config/webpack/logging');

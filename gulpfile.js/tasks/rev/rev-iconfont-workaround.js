@@ -6,7 +6,6 @@ var fs           = require('fs');
 var gulp         = require('gulp-help')(require('gulp'));
 var merge        = require('merge-stream');
 var rename       = require("gulp-rename");
-var rev          = require('gulp-rev');
 var path         = require('path');
 
 // .ttf fonts have an embedded timestamp, which cause the contents
@@ -24,10 +23,10 @@ gulp.task('rev-iconfont-workaround', false, ['rev-assets'], function() {
   var manifest = require('../../.' + config.publicDirectory + '/rev-manifest.json');
   var fontList = [];
 
-  _.each(manifest, function(reference, key) {
+	_.forEach(manifest, function(reference, key) {
     var fontPath = iconConfig.dest.split(config.publicDirectory)[1].substr(1);
-
-    if (key.match(fontPath + '/' + iconConfig.options.fontName)) {
+    
+    if (key.match(fontPath + '/' + iconConfig.options.fontName + '.svg')) {
       var path = key.split('.svg')[0];
       var hash = reference.split(path)[1].split('.svg')[0];
 
@@ -41,7 +40,7 @@ gulp.task('rev-iconfont-workaround', false, ['rev-assets'], function() {
   // Add hash to non-svg font files
   var streams = fontList.map(function(file) {
     // Add references in manifest
-    ['.eot', '.woff', '.ttf'].forEach(function(ext){
+    ['.eot', '.woff', '.woff2', '.ttf'].forEach(function(ext){
       manifest[file.path + ext] = file.path + file.hash + ext;
     });
 

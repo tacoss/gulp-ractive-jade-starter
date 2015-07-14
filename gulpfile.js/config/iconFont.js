@@ -23,7 +23,8 @@ module.exports = {
 	className: 'icon',
 	options: {
 		fontName: 'icons',
-		appendCodepoints: true,
+		svg: true,
+		appendUnicode: true,
 		normalize: false
 	}
 }

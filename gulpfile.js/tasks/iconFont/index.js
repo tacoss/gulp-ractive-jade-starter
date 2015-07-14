@@ -8,6 +8,6 @@ gulp.task('iconFont', 'Generate font and stylesheets from icons saved in assets/
   return gulp.src(config.src)
     .pipe(iconfont(config.options))
     .on('error', handleErrors)
-    .on('codepoints', generateIconStyles)
+    .on('glyphs', generateIconStyles)
     .pipe(gulp.dest(config.dest));
 });

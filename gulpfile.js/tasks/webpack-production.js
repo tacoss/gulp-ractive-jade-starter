@@ -1,5 +1,4 @@
 var config    = require('../config/webpack/buildConfig')('production');
-var logConfig = require('../config/webpack/logging');
 var gulp      = require('gulp-help')(require('gulp'));
 var logger    = require('../lib/compileLogger');
 var webpack   = require('webpack');
