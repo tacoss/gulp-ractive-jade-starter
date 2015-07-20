@@ -16,15 +16,23 @@ module.exports = {
 		sass: {
 			template: './gulpfile.js/tasks/iconFont/template.sass',
 			outputName: '_icons.sass'
+		},
+		htmlCatalog: {
+			template: './gulpfile.js/tasks/iconFont/iconCatalogTemplate.html',
+			outputName: 'iconCatalog.html',
+			// outputDir: config.sourceAssets + '/stylesheets/generated'
+			fontPath: '../../../../' + config.publicAssets + '/fonts'
 		}
 	},
 	
-	fontPath: '../../assets/fonts',
+	defaultFontPath: '../../assets/fonts',
 	className: 'icon',
 	options: {
 		fontName: 'icons',
 		svg: true,
-		appendUnicode: true,
+		appendUnicode: false,
+		//fontHeight: 1024,
+		startUnicode: 0xF000,
 		normalize: false
 	}
 }

@@ -8,10 +8,10 @@ var path   = require('path');
 //    referenced asset hash changes, the parent hash will change as well
 gulp.task('rev-css', false, ['rev-update-references'], function(){
 
-  return gulp.src(config.publicDirectory + '/**/*.css')
-    .pipe(rev())
-    .pipe(minify())
-    .pipe(gulp.dest(config.publicDirectory))
-    .pipe(rev.manifest(path.join(config.publicDirectory, '/rev-manifest.json'), {merge: true}))
-    .pipe(gulp.dest(''));
+	return gulp.src(config.publicDirectory + '/**/*.css')
+		.pipe(rev())
+		.pipe(minify())
+		.pipe(gulp.dest(config.publicDirectory))
+		.pipe(rev.manifest(path.join(config.publicDirectory, '/rev-manifest.json'), {merge: true}))
+		.pipe(gulp.dest(''));
 });

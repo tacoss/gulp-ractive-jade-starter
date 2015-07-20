@@ -5,7 +5,15 @@ block content
 	include partials/social-icons
 	button(id="button") Load Async Module
 	button(id="coffee") Drink coffee!
-	p
+	
+	p.no-lower-margin External data: 
+	div.small.data
+		b Test: 
+		span #{data.example.test}
+		br
+		b Colors: 
+		each c in data.example.colors
+			span.testcolor(style={"background-color": c.code})= c.name
 
 	h3 Some ractive content follows:
 	#ractMain This text should be replaced by RactiveJS
@@ -13,5 +21,3 @@ block content
 block javascript
 	script(src="assets/javascripts/page1.js")
 
-
-//- script(src='http://cdn.ractivejs.org/latest/ractive.min.js')

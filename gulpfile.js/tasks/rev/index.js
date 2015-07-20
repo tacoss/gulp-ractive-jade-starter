@@ -10,10 +10,10 @@ var gulp = require('gulp-help')(require('gulp'));
 // 6) Report filesizes
 
 gulp.task('rev', 'Minify files and create hashes for production', [
-  'rev-assets',
-  'rev-iconfont-workaround',
-  'rev-update-references',
-  'rev-css',
-  'update-html',
-  'size-report'
+	'rev-assets',
+	'rev-iconfont-workaround',
+	'rev-update-references',
+	'rev-css',
+	'update-html',
+	'size-report'
 ]);

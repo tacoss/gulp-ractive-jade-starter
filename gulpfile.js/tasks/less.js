@@ -7,7 +7,6 @@ var config       = require('../config/less');
 var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('less', false, [], function () {
-
 	return gulp.src(config.src)
 		.pipe(sourcemaps.init())
 		.pipe(less(config.settings))

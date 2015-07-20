@@ -1,0 +1,10 @@
+
+test: Example YAML file
+
+colors:
+  - name: Blue
+    code: "#AAF"
+  - name: Red
+    code: "#FAA"
+  - name: Yellow
+    code: "#FFFF8E"

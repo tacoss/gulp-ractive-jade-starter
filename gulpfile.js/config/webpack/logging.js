@@ -25,7 +25,7 @@ if(_.isString(logLevel)) {
 			chunks: wo !== 'errors-only',
 			chunkModules: wo === 'verbose',
 			errorDetails: wo !== 'errors-only' && wo !== 'minimal',
-		  reasons: wo === 'verbose',
+			reasons: wo === 'verbose',
 			colors: true
 		};
 	}

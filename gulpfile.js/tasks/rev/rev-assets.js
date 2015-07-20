@@ -19,16 +19,16 @@ gulp.task('rev-assets', false, function() {
 		return out
 	}
 
-  // Ignore what we dont want to hash in this step
-  var notThese = '!' + config.publicDirectory + '/**/*+(css|js|json|html)'
-  var noRehash = '!' + config.publicDirectory + '/**/*-' + repeat('[a-f0-9]', 10) + '.*'
-  
-  // Ignore iconFont files generated from the base svg iconFont. See rev-iconfont-workaround.js
-  var orThese = '!' + iconFontConfig.dest + '/' + iconFontConfig.options.fontName + '.{eot,woff,woff2,ttf}'
+	// Ignore what we dont want to hash in this step
+	var notThese = '!' + config.publicDirectory + '/**/*+(css|js|json|html)'
+	var noRehash = '!' + config.publicDirectory + '/**/*-' + repeat('[a-f0-9]', 10) + '.*'
+	
+	// Ignore iconFont files generated from the base svg iconFont. See rev-iconfont-workaround.js
+	var orThese = '!' + iconFontConfig.dest + '/' + iconFontConfig.options.fontName + '.{eot,woff,woff2,ttf}'
 
-  return gulp.src([config.publicDirectory + '/**/*', notThese, orThese, noRehash])
-    .pipe(rev())
-    .pipe(gulp.dest(config.publicDirectory))
-    .pipe(rev.manifest(path.join(config.publicDirectory, '/rev-manifest.json'), {merge: true}))
-    .pipe(gulp.dest(''));
+	return gulp.src([config.publicDirectory + '/**/*', notThese, orThese, noRehash])
+		.pipe(rev())
+		.pipe(gulp.dest(config.publicDirectory))
+		.pipe(rev.manifest(path.join(config.publicDirectory, '/rev-manifest.json'), {merge: true}))
+		.pipe(gulp.dest(''));
 });

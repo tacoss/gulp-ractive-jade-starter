@@ -20,37 +20,37 @@ var path         = require('path');
 // leting each file generate its own hash)
 
 gulp.task('rev-iconfont-workaround', false, ['rev-assets'], function() {
-  var manifest = require('../../.' + config.publicDirectory + '/rev-manifest.json');
-  var fontList = [];
+	var manifest = require('../../.' + config.publicDirectory + '/rev-manifest.json');
+	var fontList = [];
 
 	_.forEach(manifest, function(reference, key) {
-    var fontPath = iconConfig.dest.split(config.publicDirectory)[1].substr(1);
-    
-    if (key.match(fontPath + '/' + iconConfig.options.fontName + '.svg')) {
-      var path = key.split('.svg')[0];
-      var hash = reference.split(path)[1].split('.svg')[0];
+		var fontPath = iconConfig.dest.split(config.publicDirectory)[1].substr(1);
+		
+		if (key.match(fontPath + '/' + iconConfig.options.fontName + '.svg')) {
+			var path = key.split('.svg')[0];
+			var hash = reference.split(path)[1].split('.svg')[0];
 
-      fontList.push({
-        path: path,
-        hash: hash
-      });
-    }
-  });
+			fontList.push({
+				path: path,
+				hash: hash
+			});
+		}
+	});
 
-  // Add hash to non-svg font files
-  var streams = fontList.map(function(file) {
-    // Add references in manifest
-    ['.eot', '.woff', '.woff2', '.ttf'].forEach(function(ext){
-      manifest[file.path + ext] = file.path + file.hash + ext;
-    });
+	// Add hash to non-svg font files
+	var streams = fontList.map(function(file) {
+		// Add references in manifest
+		['.eot', '.woff', '.woff2', '.ttf'].forEach(function(ext){
+			manifest[file.path + ext] = file.path + file.hash + ext;
+		});
 
-    return gulp.src(config.publicDirectory + '/' + file.path + '*.!(svg)')
-      .pipe(rename({suffix: file.hash}))
-      .pipe(gulp.dest(iconConfig.dest));
-  });
+		return gulp.src(config.publicDirectory + '/' + file.path + '*.!(svg)')
+			.pipe(rename({suffix: file.hash}))
+			.pipe(gulp.dest(iconConfig.dest));
+	});
 
-  // Re-write rev-manifest.json to disk
-  fs.writeFile(path.join(config.publicDirectory, '/rev-manifest.json'), JSON.stringify(manifest, null, 2));
+	// Re-write rev-manifest.json to disk
+	fs.writeFile(path.join(config.publicDirectory, '/rev-manifest.json'), JSON.stringify(manifest, null, 2));
 
-  return merge.apply(this, streams);
+	return merge.apply(this, streams);
 });
