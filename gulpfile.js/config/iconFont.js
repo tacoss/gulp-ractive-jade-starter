@@ -18,7 +18,7 @@ module.exports = {
 			outputName: '_icons.sass'
 		},
 		htmlCatalog: {
-			template: './gulpfile.js/tasks/iconFont/iconCatalogTemplate.html',
+			template: './gulpfile.js/tasks/iconFont/templateCatalog.html',
 			outputName: 'iconCatalog.html',
 			// outputDir: config.sourceAssets + '/stylesheets/generated'
 			fontPath: '../../../../' + config.publicAssets + '/fonts'
